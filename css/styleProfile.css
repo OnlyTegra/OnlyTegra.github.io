@@ -1,0 +1,77 @@
+#profile
+{
+    display: inline-flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    padding: 30px;
+    margin: 15px;
+    background-color: rgba(41, 41, 41, 0.336);
+    border: 1px solid white;
+    backdrop-filter: blur(8px);         
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 15px;
+    position: relative; 
+    z-index: 1;        
+    text-align: center;
+}
+
+#profile-img
+{
+    border-radius: 50%;
+    width: 120px;
+    height: auto;
+}
+
+#profile-name
+{
+    font-size: 32px;
+}
+
+#profile {
+  text-align: center;
+  font-family: "IBMVGA", sans-serif;
+}
+
+#profile-bio {
+  margin: 8px 0;
+}
+
+#profile-stats {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+}
+
+.btn-github {
+  cursor: pointer;
+  display: flex;
+  gap: 0.5rem;
+  border: none;
+
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 100px;
+  place-content: center;
+
+  padding: 0.75rem 1rem;
+  font-size: 0.825rem;
+  line-height: 1rem;
+
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  color: #fff;
+  margin: 15px;
+}
+
+.btn-github:hover {
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 0 1px rgba(252, 232, 3, 0.08);
+  color: #fce803;
+  transform: translate(0, -0.25rem);
+  background-color: rgba(0, 0, 0, 0.5);
+}

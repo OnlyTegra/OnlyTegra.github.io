@@ -1,115 +1,134 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tegra's Official Website</title>
-  <script src="js/script.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/styleProfile.css">
+  <link rel="stylesheet" href="./css/styleSocials.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
+
 <body>
-  <header>
-    <video autoplay muted loop id="bg-video">
-      <source src="/img/wallpaper.mp4" type="video/mp4">
-      Il tuo browser non supporta il tag video.
-    </video>
+  <canvas id="Matrix"></canvas>
 
-    <nav class="navbar navbar-dark navbar-expand-lg navbar-stile fixed-top p-3 m-2">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">Tegra's Official Website</a>
+  <div id="container">
+    <div id="profile">
+      <img src="https://github.com/onlytegra.png" id="profile-img">
+      <p id="profile-name">@Tegra</p>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <p id="profile-bio">
+        Studente di Informatica e sviluppatore appassionato di C/C++ e altri linguaggi.
+      </p>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link active" href="battlepass.html">Pass Battaglia</a></li>
-            <li class="nav-item"><a class="nav-link active" href="itemshop.html">Negozio Oggetti</a></li>
-            <li class="nav-item"><a class="nav-link active" href="saggezza.html">Perle di saggezza</a></li>
-            <li class="nav-item"><a class="nav-link active" href="Downloads.html">Downloads</a></li>
-            <li class="nav-item"><a class="nav-link active" href="changelog.html">Changelog</a></li>
-            <li class="nav-item"><a class="nav-link active" href="aurapoints.html">Programma Aura Points</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+      <ul id="profile-stats">
+        <li>🌟 Followers: </li>
+        <li>👥 Following: </li>
+        <li>📦 Repos pubblici: </li>
+      </ul>
 
-    <div style="height: 70px;"></div>
-  </header>
-  <main class="page-content">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 divs-main mb-3">
-          <h1 class="text-center main-font"> Home </h1>
-          <p class="text-center" style="color: white; font-family: 'Arial Narrow';"> < /index.html ></p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-8">
-          <h2 class="main-font divs-main">Notizie Principali</h2>
-          <div class="divs-main">
-            <br>
-            <p class="main-font"> 31/05/2025</p>
-            <br>
-            <div class="row row-cols-1 row-cols-md-2 g-4">
-              <div class="col">
-                <h3 class="main-font"> Modifiche al mio professional Website </h3>
-                <p class="main-font"> Dopo aver fatto un lungo studio di come si progetta un sito web il sito ha larghe possibilità di tornare presto </p>
-              </div>
-              <div class="col">
-                <h3 class="main-font"> Visita la pagina dei changelog </h3>
-                <p class="main-font"> Nonostante ci siano i commit su github, io non avendo nulla da fare ho una pagina dedicata pure qua</p>
-                <a href="changelog.html" class="btn btn-success"> Changelogs </a>
-              </div>
-            </div>
-            <br>
-            <p class="main-font"> 30/05/2025</p>
-            <br>
-            <div class="row row-cols-1 row-cols-md-2 g-4">
-              <div class="col">
-                <h3 class="main-font"> Entra nel mio gruppo tg </h3>
-                <p class="main-font"> Il mio gruppo tg ti conferisce vantaggi inimmaginabili </p>
-                <a href="https://t.me/Reportare" class="btn btn-primary"> Gruppo Telegram </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="divs-main">
-          <h3 class="main-font"> Visita il mio profilo github </h3>
-            <a href="https://github.com/OnlyTegra" class="btn btn-warning"> Github </a>
-          </div>
-          <div class="divs-main">
-            <h2 class="text-center main-font"> Qua non so cosa mettere ancora </h2>
-            <p class="text-center main-font"> <=3 </p>
-          </div>
-        </div>
-      </div>
+      <button class="btn-github">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M7.99992 1.33331C7.12444 1.33331 6.25753 1.50575 5.4487 1.84078C4.63986 2.17581 3.90493 2.66688 3.28587 3.28593C2.03563 4.53618 1.33325 6.23187 1.33325 7.99998C1.33325 10.9466 3.24659 13.4466 5.89325 14.3333C6.22659 14.3866 6.33325 14.18 6.33325 14C6.33325 13.8466 6.33325 13.4266 6.33325 12.8733C4.48659 13.2733 4.09325 11.98 4.09325 11.98C3.78659 11.2066 3.35325 11 3.35325 11C2.74659 10.5866 3.39992 10.6 3.39992 10.6C4.06659 10.6466 4.41992 11.2866 4.41992 11.2866C4.99992 12.3 5.97992 12 6.35992 11.84C6.41992 11.4066 6.59325 11.1133 6.77992 10.9466C5.29992 10.78 3.74659 10.2066 3.74659 7.66665C3.74659 6.92665 3.99992 6.33331 4.43325 5.85998C4.36659 5.69331 4.13325 4.99998 4.49992 4.09998C4.49992 4.09998 5.05992 3.91998 6.33325 4.77998C6.85992 4.63331 7.43325 4.55998 7.99992 4.55998C8.56659 4.55998 9.13992 4.63331 9.66659 4.77998C10.9399 3.91998 11.4999 4.09998 11.4999 4.09998C11.8666 4.99998 11.6333 5.69331 11.5666 5.85998C11.9999 6.33331 12.2533 6.92665 12.2533 7.66665C12.2533 10.2133 10.6933 10.7733 9.20659 10.94C9.44659 11.1466 9.66659 11.5533 9.66659 12.1733C9.66659 13.0666 9.66659 13.7866 9.66659 14C9.66659 14.18 9.77325 14.3933 10.1133 14.3333C12.7599 13.44 14.6666 10.9466 14.6666 7.99998C14.6666 7.1245 14.4941 6.25759 14.1591 5.44876C13.8241 4.63992 13.333 3.90499 12.714 3.28593C12.0949 2.66688 11.36 2.17581 10.5511 1.84078C9.7423 1.50575 8.8754 1.33331 7.99992 1.33331V1.33331Z"
+            fill="currentcolor"></path>
+        </svg>
+        <span>Visita il mio github</span>
+      </button>
     </div>
-  </main>
-  <footer id="footer">
-    <div class="container footer-bianco">
-      <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0">© Fatto con amore da Tegra </p>
-        <a href="/"
-           class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto text-decoration-none"
-           aria-label="Bootstrap">
-          <svg class="bi me-2" width="40" height="32" aria-hidden="true">
-            <use xlink:href="#bootstrap"></use>
-          </svg>
-        </a>
-        <ul class="nav col-md-4 justify-content-end">
-          <li class="nav-item"><a href="index.html" class="nav-link px-2">Home</a></li>
-          <li class="nav-item"><a href="changelog.html" class="nav-link px-2">Changelogs</a></li>
-        </ul>
+
+    <div id="socials">
+      <p id="socials-title">I Miei socials</p>
+      <div class="relative group customBTN">
+        <div class="relative w-64 h-14 opacity-90 overflow-hidden rounded-xl bg-black z-10">
+          <div
+            class="absolute z-10 -translate-x-44 group-hover:translate-x-[30rem] ease-in transistion-all duration-700 h-full w-44 bg-gradient-to-r from-gray-500 to-white/10 opacity-30 -skew-x-12">
+          </div>
+
+          <div
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-black">
+            <button name="text" class="input text-lg h-full opacity-90 w-full px-16 py-3 rounded-xl bg-black"
+              id="steamBtn">
+              Steam
+            </button>
+          </div>
+          <div
+            class="absolute duration-1000 group-hover:animate-spin w-full h-[100px] bg-gradient-to-r from-blue-500 to-black-500 blur-[30px]">
+          </div>
+        </div>
       </div>
+
+      <div class="relative group customBTN">
+        <div class="relative w-64 h-14 opacity-90 overflow-hidden rounded-xl bg-black z-10">
+          <div
+            class="absolute z-10 -translate-x-44 group-hover:translate-x-[30rem] ease-in transistion-all duration-700 h-full w-44 bg-gradient-to-r from-gray-500 to-white/10 opacity-30 -skew-x-12">
+          </div>
+
+          <div
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-black">
+            <button name="text" class="input text-lg h-full opacity-90 w-full px-16 py-3 rounded-xl bg-black"
+              id="discordBtn">
+              Discord
+            </button>
+          </div>
+          <div
+            class="absolute duration-1000 group-hover:animate-spin w-full h-[100px] bg-gradient-to-r from-blue-800 to-cyan-700 blur-[30px]">
+          </div>
+        </div>
+      </div>
+
+      <div class="relative group customBTN">
+        <div class="relative w-64 h-14 opacity-90 overflow-hidden rounded-xl bg-black z-10">
+          <div
+            class="absolute z-10 -translate-x-44 group-hover:translate-x-[30rem] ease-in transistion-all duration-700 h-full w-44 bg-gradient-to-r from-gray-500 to-white/10 opacity-30 -skew-x-12">
+          </div>
+
+          <div
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-black">
+            <button name="text" class="input text-lg h-full opacity-90 w-full px-16 py-3 rounded-xl bg-black"
+              id="youtubeBtn">
+              Youtube
+            </button>
+          </div>
+          <div
+            class="absolute duration-1000 group-hover:animate-spin w-full h-[100px] bg-gradient-to-r from-red-200 to-red-700 blur-[30px]">
+          </div>
+        </div>
+      </div>
+
+      <div class="relative group customBTN">
+        <div class="relative w-64 h-14 opacity-90 overflow-hidden rounded-xl bg-black z-10">
+          <div
+            class="absolute z-10 -translate-x-44 group-hover:translate-x-[30rem] ease-in transistion-all duration-700 h-full w-44 bg-gradient-to-r from-gray-500 to-white/10 opacity-30 -skew-x-12">
+          </div>
+
+          <div
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-black">
+            <button name="text" class="input text-lg h-full opacity-90 w-full px-16 py-3 rounded-xl bg-black"
+              id="instagramBtn">
+
+              Instagram
+            </button>
+          </div>
+          <div
+            class="absolute duration-1000 group-hover:animate-spin w-full h-[100px] bg-gradient-to-r from-yellow-300 to-pink-500 blur-[30px]">
+          </div>
+        </div>
+      </div>
+
     </div>
-  </footer>
+
+  </div>
+
+  <div id="credits">
+    <p> Sito creato da <b>Tegra</b> </p>
+  </div>
+
+
+
+  <script src="./js/scriptMatrix.js"></script>
+  <script src="./js/script.js"></script>
 </body>
+
 </html>
