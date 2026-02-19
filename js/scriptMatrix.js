@@ -1,7 +1,7 @@
 /*
     sta roba assolutamente non fatta da me (figurati se mi metto a fare il matrix)
     do i crediti a lui (https://github.com/javascriptacademy-stash/digital-rain)
-    grande fra ora sempre un hacker!!
+    grande fra ora sembro un hacker!!
 */
 
 const canvas = document.getElementById('Matrix');
