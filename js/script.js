@@ -22,6 +22,11 @@ document.getElementById("instagramBtn").addEventListener("click", function (){
     window.open("https://www.instagram.com/onlytegra/","_blank");
 })
 
+document.getElementById("btn-game").addEventListener("click", function (){
+    window.open("./game.html");
+})
+
+
 const username = "onlytegra"; 
 fetch(`https://api.github.com/users/${username}`)
   .then(response => response.json())

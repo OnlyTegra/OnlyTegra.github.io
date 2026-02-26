@@ -1,27 +1,3 @@
-#socials
-{
-    display: inline-flex;
-    align-items: center;
-    align-content: center;
-    flex-direction: column;
-    justify-content: center;
-    width: 400px;
-    padding: 30px;
-    margin: 15px;
-    background-color: rgba(41, 41, 41, 0.336);
-    border: 1px solid white;
-    backdrop-filter: blur(8px);         
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 15px;
-    position: relative; 
-    z-index: 1;         
-    text-align: center;
-}
-
-#socials-title
-{
-    font-size: 32px;
-}
 
 .socials-buttons
 {
