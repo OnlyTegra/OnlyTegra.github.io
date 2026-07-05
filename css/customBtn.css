@@ -1,0 +1,40 @@
+.btn {
+  border: none;
+  width: 15em;
+  height: 4.5em;
+  margin:15px;
+  border-radius: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: #0f0f0f;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+}
+
+.text {
+  font-weight: 600;
+  color: #AAAAAA;
+  font-size: medium;
+}
+
+.btn:hover {
+  background: linear-gradient(0deg,#735aff,#9567ff);
+  box-shadow: inset 0px 1px 0px 0px #b355ff7e,
+  inset 0px -4px 0px 0px rgba(163, 64, 255, 0.2),
+  0px 0px 0px 4px rgba(138, 12, 255, 0.2),
+  0px 0px 180px 0px #8400ff;
+  transform: translateY(-2px);
+}
+
+.btn:hover .text {
+  color: white;
+}
+
+.sparkle {
+  transition: all 800ms ease;
+}
+.btn:hover .sparkle {
+  transform: scale(1.2);
+} 

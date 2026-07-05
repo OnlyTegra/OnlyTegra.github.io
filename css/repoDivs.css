@@ -1,0 +1,10 @@
+.repoDivs
+{
+    border-radius: 25px;
+}
+
+.rigaRepoDivs h1
+{
+        overflow-wrap: break-word;
+    word-break: break-word;
+}

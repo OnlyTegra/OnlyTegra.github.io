@@ -1,0 +1,165 @@
+.glow-orange {
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #ffbc2c, 0 0 20px #ffbc2c, 0 0 30px #ff7504, 0 0 40px #ff7504, 0 0 50px #ff7504, 0 0 60px #ff7504, 0 0 70px #ff7504;
+  }
+  to {
+    text-shadow: 0 0 20px #ffbc2c, 0 0 30px #ff4800, 0 0 40px #ff4800, 0 0 50px #ff4800, 0 0 60px #ff4800, 0 0 70px #ff4800, 0 0 80px #ff4800;
+  }
+}
+
+.glow-blue {
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow-blue 1s ease-in-out infinite alternate;
+  -moz-animation: glow-blue 1s ease-in-out infinite alternate;
+  animation: glow-blue 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow-blue {
+  from {
+    text-shadow:
+      0 0 10px #2cc4ff,
+      0 0 20px #2cc4ff,
+      0 0 30px #047dff,
+      0 0 40px #047dff,
+      0 0 50px #047dff;
+  }
+  to {
+    text-shadow:
+      0 0 20px #2cc4ff,
+      0 0 30px #0066ff,
+      0 0 40px #0066ff,
+      0 0 50px #0066ff,
+      0 0 60px #0066ff;
+  }
+}
+
+.glow-white {
+  color: #fff;
+  animation: glow-white 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes glow-white {
+  from {
+    text-shadow:
+      0 0 4px rgba(255,255,255,0.7),
+      0 0 8px rgba(255,255,255,0.5),
+      0 0 16px rgba(255,255,255,0.3);
+  }
+  to {
+    text-shadow:
+      0 0 6px rgba(255,255,255,0.9),
+      0 0 12px rgba(255,255,255,0.7),
+      0 0 24px rgba(255,255,255,0.4);
+  }
+}
+
+.glow-red {
+  color: #fff;
+  text-align: center;
+  animation: glow-red 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow-red {
+  from {
+    text-shadow:
+      0 0 10px #ff3b3b,
+      0 0 20px #ff3b3b,
+      0 0 30px #ff0000,
+      0 0 40px #cc0000,
+      0 0 50px #cc0000;
+  }
+  to {
+    text-shadow:
+      0 0 20px #ff4d4d,
+      0 0 30px #ff1a1a,
+      0 0 40px #ff0000,
+      0 0 50px #cc0000,
+      0 0 60px #990000;
+  }
+}
+
+.glow-green {
+  color: #fff;
+  text-align: center;
+  animation: glow-green 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow-green {
+  from {
+    text-shadow:
+      0 0 10px #4dff4d,
+      0 0 20px #4dff4d,
+      0 0 30px #00ff00,
+      0 0 40px #00cc00,
+      0 0 50px #00cc00;
+  }
+  to {
+    text-shadow:
+      0 0 20px #66ff66,
+      0 0 30px #33ff33,
+      0 0 40px #00ff00,
+      0 0 50px #00cc00,
+      0 0 60px #009900;
+  }
+}
+
+.glow-purple {
+  color: #fff;
+  text-align: center;
+  animation: glow-purple 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow-purple {
+  from {
+    text-shadow:
+      0 0 10px #c77dff,
+      0 0 20px #c77dff,
+      0 0 30px #9d4edd,
+      0 0 40px #7b2cbf,
+      0 0 50px #5a189a;
+  }
+  to {
+    text-shadow:
+      0 0 20px #e0aaff,
+      0 0 30px #c77dff,
+      0 0 40px #9d4edd,
+      0 0 50px #7b2cbf,
+      0 0 60px #5a189a;
+  }
+}
+
+.glow-border-pulse {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 25px;
+
+  animation: borderGlowPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes borderGlowPulse {
+  0% {
+    box-shadow:
+      0 0 0 rgba(0,0,0,0),
+      0 0 6px rgba(255,255,255,0.08);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 rgba(0,0,0,0),
+      0 0 14px rgba(255,255,255,0.25);
+  }
+
+  100% {
+    box-shadow:
+      0 0 0 rgba(0,0,0,0),
+      0 0 6px rgba(255,255,255,0.08);
+  }
+}

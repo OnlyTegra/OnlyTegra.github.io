@@ -4,132 +4,448 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>👁️</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/styleProfile.css">
   <link rel="stylesheet" href="./css/styleSocials.css">
   <link rel="stylesheet" href="./css/style.css">
-  <title>👁️</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="./css/customBtn.css">
+  <link rel="stylesheet" href="./css/rulesScreen.css">
+  <link rel="stylesheet" href="./css/repoDivs.css">
+  <link rel="stylesheet" href="./css/glow.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 </head>
 
+
 <body>
-  <canvas id="Matrix"></canvas>
+<div id="intro" onclick="startExperience()">
+  <h1 class="glow-purple" id="loading-text">👁️<br><span style="font-size: 10px;"><i>clicca per entrare</i></span></h1>
 
+  <div id="loading-bar" style="opacity: 0;">
+    <div id="loading-fill"></div>
+  </div>
+</div>
+  <audio id="bg-music" src="/audio/music.mp3"></audio>
+
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="/video/background.mp4" type="video/mp4">
+  </video>
+  <div id="now-playing">
+    <img id="np-cover" src="/img/cover.png" alt="cover">
+    <div id="np-text">
+      <span id="np-label">Yungest Moonstar (Thasup)</span>
+      <span id="np-title">wocK</span>
+    </div>
+    <div style="border-left: 1px solid rgba(100, 100, 100, 0.336); margin-left: 10px; padding-left: 10px;">
+      <span style="font-size: 10px;"><i>Website by Tegra</i></span>
+    </div>
+  </div>
   <div id="container">
-    <div id="profile">
-      <img src="https://github.com/onlytegra.png" id="profile-img">
-      <p id="profile-name">@Tegra</p>
+    <div id="profile" class="glow-border-pulse" data-aos="zoom-in-up">
+      <img style="border: 1px solid rgba(100, 100, 100, 0.336)" src="https://github.com/onlytegra.png" id="profile-img">
+      <span id="profile-name" class="glow-blue">@Tegra</span>
+      <span style="font-size: 12px;"><i>Marco</i></span>
+      <div id="profile-bio">
+        <div style="display: flex; align-items: center; align-content: center; justify-content: center;">
+          18 y.o<br>
+          Back-end (ASP.NET / C#)<br>
+          C / C++<br>
+          WinForms (C#)<br>
+          Front-end (HTML / CSS / JS)<br>
 
-      <p id="profile-bio">
-        Sono uno studente appassionato di programmazione. Mi piace la programmazione a basso livello e mi impegno a migliorare costantemente le mie competenze.
-      </p>
+          <span class="bio-meta">
+            🖥 Windows 11<br>
+            🧠 i7 11700F <br>
+            💾 32GB DDR4 <br>
+            👾 RTX 5060 <br>
+          </span>
+        </div>
 
-      <ul id="profile-stats">
-        <li>🌟 Followers: </li>
-        <li>👥 Following: </li>
-        <li>📦 Repos pubblici: </li>
-      </ul>
 
-      <button class="btn-github">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M7.99992 1.33331C7.12444 1.33331 6.25753 1.50575 5.4487 1.84078C4.63986 2.17581 3.90493 2.66688 3.28587 3.28593C2.03563 4.53618 1.33325 6.23187 1.33325 7.99998C1.33325 10.9466 3.24659 13.4466 5.89325 14.3333C6.22659 14.3866 6.33325 14.18 6.33325 14C6.33325 13.8466 6.33325 13.4266 6.33325 12.8733C4.48659 13.2733 4.09325 11.98 4.09325 11.98C3.78659 11.2066 3.35325 11 3.35325 11C2.74659 10.5866 3.39992 10.6 3.39992 10.6C4.06659 10.6466 4.41992 11.2866 4.41992 11.2866C4.99992 12.3 5.97992 12 6.35992 11.84C6.41992 11.4066 6.59325 11.1133 6.77992 10.9466C5.29992 10.78 3.74659 10.2066 3.74659 7.66665C3.74659 6.92665 3.99992 6.33331 4.43325 5.85998C4.36659 5.69331 4.13325 4.99998 4.49992 4.09998C4.49992 4.09998 5.05992 3.91998 6.33325 4.77998C6.85992 4.63331 7.43325 4.55998 7.99992 4.55998C8.56659 4.55998 9.13992 4.63331 9.66659 4.77998C10.9399 3.91998 11.4999 4.09998 11.4999 4.09998C11.8666 4.99998 11.6333 5.69331 11.5666 5.85998C11.9999 6.33331 12.2533 6.92665 12.2533 7.66665C12.2533 10.2133 10.6933 10.7733 9.20659 10.94C9.44659 11.1466 9.66659 11.5533 9.66659 12.1733C9.66659 13.0666 9.66659 13.7866 9.66659 14C9.66659 14.18 9.77325 14.3933 10.1133 14.3333C12.7599 13.44 14.6666 10.9466 14.6666 7.99998C14.6666 7.1245 14.4941 6.25759 14.1591 5.44876C13.8241 4.63992 13.333 3.90499 12.714 3.28593C12.0949 2.66688 11.36 2.17581 10.5511 1.84078C9.7423 1.50575 8.8754 1.33331 7.99992 1.33331V1.33331Z"
-            fill="currentcolor"></path>
-        </svg>
-        <span>Visita il mio github</span>
-      </button>
+        <br>
+        <span class="bio-badges">
+          <span class="badge">C/C++</span>
+          <span class="badge">C#</span>
+          <span class="badge">JavaScript</span>
+          <span class="badge">PHP</span>
+          <span class="badge">SQL</span>
+          <span class="badge">Python</span>
+          <span class="badge">ASP.NET</span>
+        </span>
+        <button class="btn" id="BtnTelegram">
+          <svg class="sparkle" width="24" height="24" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg"
+            fill="none">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path stroke="#ffffff" stroke-width="12"
+                d="M23.073 88.132s65.458-26.782 88.16-36.212c8.702-3.772 38.215-15.843 38.215-15.843s13.621-5.28 12.486 7.544c-.379 5.281-3.406 23.764-6.433 43.756-4.54 28.291-9.459 59.221-9.459 59.221s-.756 8.676-7.188 10.185c-6.433 1.509-17.027-5.281-18.919-6.79-1.513-1.132-28.377-18.106-38.214-26.404-2.649-2.263-5.676-6.79.378-12.071 13.621-12.447 29.891-27.913 39.728-37.72 4.54-4.527 9.081-15.089-9.837-2.264-26.864 18.483-53.35 35.835-53.35 35.835s-6.053 3.772-17.404.377c-11.351-3.395-24.594-7.921-24.594-7.921s-9.08-5.659 6.433-11.693Z">
+              </path>
+            </g>
+          </svg>
+          <span class="text">Telegram</span>
+        </button>
+      </div>
     </div>
 
-    <div id="socials">
-      <p id="socials-title">I Miei socials</p>
-      <div class="relative group customBTN">
-        <div class="relative w-64 h-14 opacity-90 overflow-hidden rounded-xl bg-black z-10">
-          <div
-            class="absolute z-10 -translate-x-44 group-hover:translate-x-[30rem] ease-in transistion-all duration-700 h-full w-44 bg-gradient-to-r from-gray-500 to-white/10 opacity-30 -skew-x-12">
-          </div>
+    <div data-aos="zoom-in-up" id="socials" class="glow-border-pulse">
 
-          <div
-            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-black">
-            <button name="text" class="input text-lg h-full opacity-90 w-full px-16 py-3 rounded-xl bg-black"
-              id="steamBtn">
-              Steam
+      <div style="margin: 35px;">
+        <h1 id="socials-title" class="glow-white">Profilo Github</h1>
+        <ul id="profile-stats">
+          <li>🌟 Followers: </li>
+          <li>👥 Following: </li>
+          <li>📦 Repos pubblici: </li>
+        </ul>
+        <button class="btn" id="BtnGithub">
+          <svg class="sparkle" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M4.0744 2.9938C4.13263 1.96371 4.37869 1.51577 5.08432 1.15606C5.84357 0.768899 7.04106 0.949072 8.45014 1.66261C9.05706 1.97009 9.11886 1.97635 10.1825 1.83998C11.5963 1.65865 13.4164 1.65929 14.7213 1.84164C15.7081 1.97954 15.7729 1.97265 16.3813 1.66453C18.3814 0.651679 19.9605 0.71795 20.5323 1.8387C20.8177 2.39812 20.8707 3.84971 20.6494 5.04695C20.5267 5.71069 20.5397 5.79356 20.8353 6.22912C22.915 9.29385 21.4165 14.2616 17.8528 16.1155C17.5801 16.2574 17.3503 16.3452 17.163 16.4167C16.5879 16.6363 16.4133 16.703 16.6247 17.7138C16.7265 18.2 16.8491 19.4088 16.8973 20.4002C16.9844 22.1922 16.9831 22.2047 16.6688 22.5703C16.241 23.0676 15.6244 23.076 15.2066 22.5902C14.9341 22.2734 14.9075 22.1238 14.9075 20.9015C14.9075 19.0952 14.7095 17.8946 14.2417 16.8658C13.6854 15.6415 14.0978 15.185 15.37 14.9114C17.1383 14.531 18.5194 13.4397 19.2892 11.8146C20.0211 10.2698 20.1314 8.13501 18.8082 6.83668C18.4319 6.3895 18.4057 5.98446 18.6744 4.76309C18.7748 4.3066 18.859 3.71768 18.8615 3.45425C18.8653 3.03823 18.8274 2.97541 18.5719 2.97541C18.4102 2.97541 17.7924 3.21062 17.1992 3.49805L16.2524 3.95695C16.1663 3.99866 16.07 4.0147 15.975 4.0038C13.5675 3.72746 11.2799 3.72319 8.86062 4.00488C8.76526 4.01598 8.66853 3.99994 8.58215 3.95802L7.63585 3.49882C7.04259 3.21087 6.42482 2.97541 6.26317 2.97541C5.88941 2.97541 5.88379 3.25135 6.22447 4.89078C6.43258 5.89203 6.57262 6.11513 5.97101 6.91572C5.06925 8.11576 4.844 9.60592 5.32757 11.1716C5.93704 13.1446 7.4295 14.4775 9.52773 14.9222C10.7926 15.1903 11.1232 15.5401 10.6402 16.9905C10.26 18.1319 10.0196 18.4261 9.46707 18.4261C8.72365 18.4261 8.25796 17.7821 8.51424 17.1082C8.62712 16.8112 8.59354 16.7795 7.89711 16.5255C5.77117 15.7504 4.14514 14.0131 3.40172 11.7223C2.82711 9.95184 3.07994 7.64739 4.00175 6.25453C4.31561 5.78028 4.32047 5.74006 4.174 4.83217C4.09113 4.31822 4.04631 3.49103 4.0744 2.9938Z"
+                fill="#ffffff"></path>
+              <path
+                d="M3.33203 15.9454C3.02568 15.4859 2.40481 15.3617 1.94528 15.6681C1.48576 15.9744 1.36158 16.5953 1.66793 17.0548C1.8941 17.3941 2.16467 17.6728 2.39444 17.9025C2.4368 17.9449 2.47796 17.9858 2.51815 18.0257C2.71062 18.2169 2.88056 18.3857 3.05124 18.5861C3.42875 19.0292 3.80536 19.626 4.0194 20.6962C4.11474 21.1729 4.45739 21.4297 4.64725 21.5419C4.85315 21.6635 5.07812 21.7352 5.26325 21.7819C5.64196 21.8774 6.10169 21.927 6.53799 21.9559C7.01695 21.9877 7.53592 21.998 7.99999 22.0008C8.00033 22.5527 8.44791 23.0001 8.99998 23.0001C9.55227 23.0001 9.99998 22.5524 9.99998 22.0001V21.0001C9.99998 20.4478 9.55227 20.0001 8.99998 20.0001C8.90571 20.0001 8.80372 20.0004 8.69569 20.0008C8.10883 20.0026 7.34388 20.0049 6.67018 19.9603C6.34531 19.9388 6.07825 19.9083 5.88241 19.871C5.58083 18.6871 5.09362 17.8994 4.57373 17.2891C4.34391 17.0194 4.10593 16.7834 3.91236 16.5914C3.87612 16.5555 3.84144 16.5211 3.80865 16.4883C3.5853 16.265 3.4392 16.1062 3.33203 15.9454Z"
+                fill="#ffffff"></path>
+            </g>
+          </svg>
+          <span class="text">Github</span>
+        </button>
+      </div>
+
+      <div id="separator" style="border: 1px solid rgba(100, 100, 100, 0.336); height: 200px;"></div>
+
+      <div style="margin: 35px; " data-aos="zoom-in-up">
+
+        <h1 id="socials-title" class="glow-white">Socials</h1>
+
+        <button class="btn" id="BtnSteam">
+          <svg class="sparkle" viewBox="0 0 192 192" width="24" height="24" xmlns="http://www.w3.org/2000/svg"
+            xml:space="preserve" fill="none">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <g style="fill:none;stroke:#ffffff;stroke-width:6.09958;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                transform="matrix(1.9641 0 0 1.96342 19.541 5.281)">
+                <path fill="#ffffff"
+                  d="m.154 41.29 23.71 9.803a12.444 12.444 0 0 1 7.745-2.158l10.544-15.283-.001-.216c0-9.199 7.483-16.683 16.683-16.683 9.199 0 16.682 7.484 16.682 16.683S68.034 50.12 58.835 50.12c-.127 0-.253-.003-.379-.006l-15.038 10.73c.008.195.015.394.015.592 0 6.906-5.617 12.522-12.522 12.522-6.061 0-11.129-4.326-12.277-10.055l-16.956-7.01"
+                  style="display:inline;fill:none;stroke:#ffffff;stroke-width:6.09958;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1">
+                </path>
+                <ellipse cx="58.576" cy="33.435" rx="9.916" ry="9.922"
+                  style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:6.09958;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none;stroke-opacity:1"
+                  stroke="none"></ellipse>
+                <ellipse cx="31.079" cy="61.436" rx="7.437" ry="7.441"
+                  style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:6.09958;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none;stroke-opacity:1"
+                  stroke="none"></ellipse>
+              </g>
+            </g>
+          </svg>
+          <span class="text">Steam</span>
+        </button>
+
+        <button class="btn" id="BtnDiscord">
+          <svg class="sparkle" width="24px" height="24px" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg"
+            fill="none">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"
+                d="m68 138-8 16c-10.19-4.246-20.742-8.492-31.96-15.8-3.912-2.549-6.284-6.88-6.378-11.548-.488-23.964 5.134-48.056 19.369-73.528 1.863-3.334 4.967-5.778 8.567-7.056C58.186 43.02 64.016 40.664 74 39l6 11s6-2 16-2 16 2 16 2l6-11c9.984 1.664 15.814 4.02 24.402 7.068 3.6 1.278 6.704 3.722 8.567 7.056 14.235 25.472 19.857 49.564 19.37 73.528-.095 4.668-2.467 8.999-6.379 11.548-11.218 7.308-21.769 11.554-31.96 15.8l-8-16m-68-8s20 10 40 10 40-10 40-10">
+              </path>
+              <ellipse cx="71" cy="101" fill="#ffffff" rx="13" ry="15"></ellipse>
+              <ellipse cx="121" cy="101" fill="#ffffff" rx="13" ry="15"></ellipse>
+            </g>
+          </svg>
+          <span class="text">Discord</span>
+        </button>
+
+        <button class="btn" id="BtnTiktok">
+          <svg class="sparkle" width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M16.8217 5.1344C16.0886 4.29394 15.6479 3.19805 15.6479 2H14.7293M16.8217 5.1344C17.4898 5.90063 18.3944 6.45788 19.4245 6.67608C19.7446 6.74574 20.0786 6.78293 20.4266 6.78293V10.2191C18.645 10.2191 16.9932 9.64801 15.6477 8.68211V15.6707C15.6477 19.1627 12.8082 22 9.32386 22C7.50043 22 5.85334 21.2198 4.69806 19.98C3.64486 18.847 2.99994 17.3331 2.99994 15.6707C2.99994 12.2298 5.75592 9.42509 9.17073 9.35079M16.8217 5.1344C16.8039 5.12276 16.7861 5.11101 16.7684 5.09914M6.9855 17.3517C6.64217 16.8781 6.43802 16.2977 6.43802 15.6661C6.43802 14.0734 7.73249 12.7778 9.32394 12.7778C9.62087 12.7778 9.9085 12.8288 10.1776 12.9124V9.40192C9.89921 9.36473 9.61622 9.34149 9.32394 9.34149C9.27287 9.34149 8.86177 9.36884 8.81073 9.36884M14.7244 2H12.2097L12.2051 15.7775C12.1494 17.3192 10.8781 18.5591 9.32386 18.5591C8.35878 18.5591 7.50971 18.0808 6.98079 17.3564"
+                stroke="#ffffff" stroke-linejoin="round"></path>
+            </g>
+          </svg>
+          <span class="text">TikTok</span>
+        </button>
+
+        <button class="btn" id="BtnYoutube">
+          <svg class="sparkle" width="24px" height="24px" viewBox="0 -0.5 25 25" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M18.168 19.0028C20.4724 19.0867 22.41 17.29 22.5 14.9858V9.01982C22.41 6.71569 20.4724 4.91893 18.168 5.00282H6.832C4.52763 4.91893 2.58998 6.71569 2.5 9.01982V14.9858C2.58998 17.29 4.52763 19.0867 6.832 19.0028H18.168Z"
+                stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M12.008 9.17784L15.169 11.3258C15.3738 11.4454 15.4997 11.6647 15.4997 11.9018C15.4997 12.139 15.3738 12.3583 15.169 12.4778L12.008 14.8278C11.408 15.2348 10.5 14.8878 10.5 14.2518V9.75184C10.5 9.11884 11.409 8.77084 12.008 9.17784Z"
+                stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+          </svg>
+          <span class="text">Youtube</span>
+        </button>
+
+        <button class="btn" id="BtnInstagram">
+          <svg class="sparkle" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
+                fill="#ffffff"></path>
+              <path
+                d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z"
+                fill="#ffffff"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z"
+                fill="#ffffff"></path>
+            </g>
+          </svg>
+          <span class="text">Instagram</span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+  <div data-aos="zoom-in-up" id="divContributions" class="glow-border-pulse"
+    style="display:flex; align-items: center; align-content: center; justify-content: center; flex-direction: column; width: 65%; border: 1px solid rgba(100, 100, 100, 0.336); border-radius: 25px; background-color: rgba(27, 27, 27, 0.685);">
+    <img style="border-radius: 25px;" width="80%"
+      src="https://github-readme-activity-graph.vercel.app/graph?username=OnlyTegra&theme=github-compact&hide_border=true&custom_title=Contributi"
+      alt="Activity graph" />
+
+  </div>
+  <div data-aos="zoom-in-up" class="glow-border-pulse"
+    style="margin-top: 20px; display:flex; align-items: center; align-content: center; justify-content: center; flex-direction: column; width: 65%; border: 1px solid rgba(100, 100, 100, 0.336); border-radius: 25px; background-color: rgba(27, 27, 27, 0.685);">
+    <p class="glow-white" style="color: white; font-weight: bold; font-size: 24px; margin-top: 10px;">Repositories</p>
+  </div>
+  <div id="repositoryDiv" class="container"
+    style="width: 100%; margin-top: 25px; margin-bottom: 25px; align-items: center; justify-content: center; display: flex; flex-direction: column;">
+    <div class="row g-3" style=" width: 100%;">
+
+      <div class="col-md-6" data-aos="zoom-in-up" >
+        <div class="card repoDivs glow-border-pulse"
+          style="border: 1px solid rgba(100, 100, 100, 0.336); color:white; overflow: hidden; background-color: rgba(27, 27, 27, 0.863);">
+          <div class="card-body"
+            style="display: flex; align-items: center; justify-content: space-between; flex-direction: column;">
+            <h1 style="font-weight: bold; font-size: 24px;"><span class="glow-purple">TryParse.h</span><span
+                class="badge bg-dark">C++</span></h1>
+            <p>Libreria scritta in C++ che permette di convertire le stringhe in tipi di dati numerici in modo sicuro.
+            </p>
+            <button class="btn" id="BtnRepo1">
+              <svg class="sparkle" width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M3 8.2C3 7.07989 3 6.51984 3.21799 6.09202C3.40973 5.71569 3.71569 5.40973 4.09202 5.21799C4.51984 5 5.0799 5 6.2 5H9.67452C10.1637 5 10.4083 5 10.6385 5.05526C10.8425 5.10425 11.0376 5.18506 11.2166 5.29472C11.4184 5.4184 11.5914 5.59135 11.9373 5.93726L12.0627 6.06274C12.4086 6.40865 12.5816 6.5816 12.7834 6.70528C12.9624 6.81494 13.1575 6.89575 13.3615 6.94474C13.5917 7 13.8363 7 14.3255 7H17.8C18.9201 7 19.4802 7 19.908 7.21799C20.2843 7.40973 20.5903 7.71569 20.782 8.09202C21 8.51984 21 9.0799 21 10.2V15.8C21 16.9201 21 17.4802 20.782 17.908C20.5903 18.2843 20.2843 18.5903 19.908 18.782C19.4802 19 18.9201 19 17.8 19H6.2C5.07989 19 4.51984 19 4.09202 18.782C3.71569 18.5903 3.40973 18.2843 3.21799 17.908C3 17.4802 3 16.9201 3 15.8V8.2Z"
+                    stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+              </svg>
+              <span class="text">Vai al repository</span>
             </button>
-          </div>
-          <div
-            class="absolute duration-1000 group-hover:animate-spin w-full h-[100px] bg-gradient-to-r from-blue-500 to-black-500 blur-[30px]">
           </div>
         </div>
       </div>
 
-      <div class="relative group customBTN">
-        <div class="relative w-64 h-14 opacity-90 overflow-hidden rounded-xl bg-black z-10">
-          <div
-            class="absolute z-10 -translate-x-44 group-hover:translate-x-[30rem] ease-in transistion-all duration-700 h-full w-44 bg-gradient-to-r from-gray-500 to-white/10 opacity-30 -skew-x-12">
-          </div>
+      <div class="col-md-6 rigaRepoDivs" data-aos="zoom-in-up" >
+        <div class="card repoDivs glow-border-pulse"
+          style="border: 1px solid rgba(100, 100, 100, 0.336); color:white; overflow: hidden; background-color: rgba(27, 27, 27, 0.863);">
+          <div class="card-body"
+            style="display: flex; align-items: center; justify-content: space-between; flex-direction: column;">
+            <h1 style="font-weight: bold; font-size: 24px;"><span class="glow-purple">DateTime.h</span><span
+                class="badge bg-dark">C++</span></h1>
+            <p>Libreria scritta in C++ che aggiunge un implementazione base dell'oggetto DateTime già presente in altri
+              linguaggi.</p>
+            <button class="btn" id="BtnRepo2">
+              <svg class="sparkle" width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M3 8.2C3 7.07989 3 6.51984 3.21799 6.09202C3.40973 5.71569 3.71569 5.40973 4.09202 5.21799C4.51984 5 5.0799 5 6.2 5H9.67452C10.1637 5 10.4083 5 10.6385 5.05526C10.8425 5.10425 11.0376 5.18506 11.2166 5.29472C11.4184 5.4184 11.5914 5.59135 11.9373 5.93726L12.0627 6.06274C12.4086 6.40865 12.5816 6.5816 12.7834 6.70528C12.9624 6.81494 13.1575 6.89575 13.3615 6.94474C13.5917 7 13.8363 7 14.3255 7H17.8C18.9201 7 19.4802 7 19.908 7.21799C20.2843 7.40973 20.5903 7.71569 20.782 8.09202C21 8.51984 21 9.0799 21 10.2V15.8C21 16.9201 21 17.4802 20.782 17.908C20.5903 18.2843 20.2843 18.5903 19.908 18.782C19.4802 19 18.9201 19 17.8 19H6.2C5.07989 19 4.51984 19 4.09202 18.782C3.71569 18.5903 3.40973 18.2843 3.21799 17.908C3 17.4802 3 16.9201 3 15.8V8.2Z"
+                    stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+              </svg>
 
-          <div
-            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-black">
-            <button name="text" class="input text-lg h-full opacity-90 w-full px-16 py-3 rounded-xl bg-black"
-              id="discordBtn">
-              Discord
+              <span class="text">Vai al repository</span>
             </button>
-          </div>
-          <div
-            class="absolute duration-1000 group-hover:animate-spin w-full h-[100px] bg-gradient-to-r from-blue-800 to-cyan-700 blur-[30px]">
           </div>
         </div>
       </div>
 
-      <div class="relative group customBTN">
-        <div class="relative w-64 h-14 opacity-90 overflow-hidden rounded-xl bg-black z-10">
-          <div
-            class="absolute z-10 -translate-x-44 group-hover:translate-x-[30rem] ease-in transistion-all duration-700 h-full w-44 bg-gradient-to-r from-gray-500 to-white/10 opacity-30 -skew-x-12">
-          </div>
+      <div class="col-md-6" data-aos="zoom-in-up" >
+        <div class="card repoDivs glow-border-pulse"
+          style="border: 1px solid rgba(100, 100, 100, 0.336); color:white; overflow: hidden; background-color: rgba(27, 27, 27, 0.863);">
+          <div class="card-body"
+            style="display: flex; align-items: center; justify-content: space-between; flex-direction: column;">
+            <h1 style="font-weight: bold; font-size: 24px;"><span class="glow-purple">Libreria Giochi</span><span
+                class="badge bg-dark">C#</span><span class="badge bg-dark">SQL</span><span class="badge bg-danger">In
+                sviluppo</span></h1>
+            <p>Programma scritto in C# .NET 10 che permette di salvare i propri giochi in un programma unico, grazie
+              alla tecnologia SQL</p>
+            <button class="btn" id="BtnRepo3">
+              <svg class="sparkle" width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M3 8.2C3 7.07989 3 6.51984 3.21799 6.09202C3.40973 5.71569 3.71569 5.40973 4.09202 5.21799C4.51984 5 5.0799 5 6.2 5H9.67452C10.1637 5 10.4083 5 10.6385 5.05526C10.8425 5.10425 11.0376 5.18506 11.2166 5.29472C11.4184 5.4184 11.5914 5.59135 11.9373 5.93726L12.0627 6.06274C12.4086 6.40865 12.5816 6.5816 12.7834 6.70528C12.9624 6.81494 13.1575 6.89575 13.3615 6.94474C13.5917 7 13.8363 7 14.3255 7H17.8C18.9201 7 19.4802 7 19.908 7.21799C20.2843 7.40973 20.5903 7.71569 20.782 8.09202C21 8.51984 21 9.0799 21 10.2V15.8C21 16.9201 21 17.4802 20.782 17.908C20.5903 18.2843 20.2843 18.5903 19.908 18.782C19.4802 19 18.9201 19 17.8 19H6.2C5.07989 19 4.51984 19 4.09202 18.782C3.71569 18.5903 3.40973 18.2843 3.21799 17.908C3 17.4802 3 16.9201 3 15.8V8.2Z"
+                    stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+              </svg>
 
-          <div
-            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-black">
-            <button name="text" class="input text-lg h-full opacity-90 w-full px-16 py-3 rounded-xl bg-black"
-              id="youtubeBtn">
-              Youtube
+              <span class="text">Vai al repository</span>
             </button>
-          </div>
-          <div
-            class="absolute duration-1000 group-hover:animate-spin w-full h-[100px] bg-gradient-to-r from-red-200 to-red-700 blur-[30px]">
           </div>
         </div>
       </div>
 
-      <div class="relative group customBTN">
-        <div class="relative w-64 h-14 opacity-90 overflow-hidden rounded-xl bg-black z-10">
-          <div
-            class="absolute z-10 -translate-x-44 group-hover:translate-x-[30rem] ease-in transistion-all duration-700 h-full w-44 bg-gradient-to-r from-gray-500 to-white/10 opacity-30 -skew-x-12">
+      <div class="col-md-6" data-aos="zoom-in-up" >
+        <div class="card repoDivs glow-border-pulse"
+          style=" color:white; border:1px solid rgba(100, 100, 100, 0.336); background-color: rgba(27, 27, 27, 0.863);">
+          <div style="position: relative;">
+            <img src="img/subnetter.png" style="height: 200px; width: 100%; object-fit: cover; border-radius:25px;" class="card-img-top ">
+
+            <div style="
+              position: absolute;
+              bottom: 10px;
+              left: 15px;
+              color: white;
+              font-size: 48px;
+              font-weight: bold;
+                                ">
+              <h1 style="font-weight: bold; font-size: 24px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                <span class="glow-purple">Subnetter</span><span class="badge bg-dark">C++</span>
+              </h1>
+            </div>
           </div>
+          <div class="card-body"
+            style="display: flex; align-items: center; justify-content: space-between; flex-direction: column;">
+            <p>Programma scritto in C++ che permette di creare subnet in modo semplice e veloce.</p>
+            <button class="btn" id="BtnRepo4">
+              <svg class="sparkle" width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M3 8.2C3 7.07989 3 6.51984 3.21799 6.09202C3.40973 5.71569 3.71569 5.40973 4.09202 5.21799C4.51984 5 5.0799 5 6.2 5H9.67452C10.1637 5 10.4083 5 10.6385 5.05526C10.8425 5.10425 11.0376 5.18506 11.2166 5.29472C11.4184 5.4184 11.5914 5.59135 11.9373 5.93726L12.0627 6.06274C12.4086 6.40865 12.5816 6.5816 12.7834 6.70528C12.9624 6.81494 13.1575 6.89575 13.3615 6.94474C13.5917 7 13.8363 7 14.3255 7H17.8C18.9201 7 19.4802 7 19.908 7.21799C20.2843 7.40973 20.5903 7.71569 20.782 8.09202C21 8.51984 21 9.0799 21 10.2V15.8C21 16.9201 21 17.4802 20.782 17.908C20.5903 18.2843 20.2843 18.5903 19.908 18.782C19.4802 19 18.9201 19 17.8 19H6.2C5.07989 19 4.51984 19 4.09202 18.782C3.71569 18.5903 3.40973 18.2843 3.21799 17.908C3 17.4802 3 16.9201 3 15.8V8.2Z"
+                    stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+              </svg>
 
-          <div
-            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-black">
-            <button name="text" class="input text-lg h-full opacity-90 w-full px-16 py-3 rounded-xl bg-black"
-              id="instagramBtn">
-
-              Instagram
+              <span class="text">Vai al repository</span>
             </button>
-          </div>
-          <div
-            class="absolute duration-1000 group-hover:animate-spin w-full h-[100px] bg-gradient-to-r from-yellow-300 to-pink-500 blur-[30px]">
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div data-aos="zoom-in-up" id="titoloWoW" class="glow-border-pulse"
+    style="display:flex; align-items: center; align-content: center; justify-content: center; flex-direction: column; width: 65%; border-radius: 25px; background-color: rgba(27, 27, 27, 0.863);">
+    <p class="glow-white" style="color:white; margin:10px; font-weight: bold; font-size: 24px;">World of Warcraft <span
+        style="font-size: 10px;">(Angolo disoccupazione)</span></p>
+  </div>
+  <div class="card glow-border-pulse"" id="raiderDiv" data-aos="zoom-in-up" 
+    style="margin-bottom: 25px; margin-top: 25px; width: 75%; border: 1px solid rgba(100, 100, 100, 0.336); color:white; border-radius: 15px; overflow: hidden; background-color: rgba(27, 27, 27, 0.863);">
 
+    <div style="position: relative;">
+      <img src="img/background-wow.avif" style="height: 200px; width: 100%; object-fit: cover;" class="card-img-top">
+
+      <div style="
+            position: absolute;
+            bottom: 10px;
+            left: 15px;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+        " id="wow-title">
+        Rider.io Stats
+      </div>
     </div>
 
+    <!-- NUOVO: testo in alto a destra -->
+    <div style="
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+        opacity: 0.9;
+    ">
+      Raider.io Stats
+    </div>
+
+    <div class="card-body" id="raiderDivContainer"
+      style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+      <div style="padding: 20px; border:1 px solid rgba(100, 100, 100, 0.336);">
+        <p style="font-weight: bold;">💀 Classe: <span id="class-text" class="glow-red"
+            style="font-weight: 300;"></span></p>
+        <p style="font-weight: bold;">🗡️ Spec: <span id="spec-text" class="glow-green"
+            style="font-weight: 300;"></span></p>
+        <p style="font-weight: bold;">🛡️ Fazione: <span id="faction-text" class="glow-blue"
+            style="font-weight: 300;"></span></p>
+      </div>
+      <div style="padding: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div>
+          <p style="font-weight: bold;">🏆 Punteggio Raider.io</p>
+        </div>
+        <div>
+          <p id="raiderio-score" class="glow-orange" style="font-weight: bolder; font-size: 56px;">67</p>
+        </div>
+      </div>
+      <div style="padding: 20px;">
+        <button class="btn" id="BtnWowProfile">
+          <svg class="sparkle" width="24px" height="24px" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+          </svg>
+          <span class="text">Visualizza Profilo Completo</span>
+        </button>
+      </div>
+    </div>
   </div>
 
-  <div id="credits">
-    <p> Sito creato da <b>Tegra</b> </p>
-  </div>
 
 
 
-  <script src="./js/scriptMatrix.js"></script>
+
+  <script src="./js/fetch-github.js"></script>
   <script src="./js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    AOS.init({
+      duration: 500,
+      once: false
+    });
+  </script>
+  <script src="./js/intro.js"></script>
+
+  
 </body>
 
 </html>

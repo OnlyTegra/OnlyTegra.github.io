@@ -1,36 +1,89 @@
-
-
-document.querySelector(".btn-github").addEventListener("click", function () {
-    window.open("https://github.com/OnlyTegra", "_blank");
+let wowtitle = document.getElementById("wow-title");
+let classText = document.getElementById("class-text");
+let specText = document.getElementById("spec-text");
+let factionText = document.getElementById("faction-text");
+let raiderioScore = document.getElementById("raiderio-score");
+let name = "tegra";
+let realm = "pozzo-delleternità";
+fetch (`https://raider.io/api/v1/characters/profile?region=eu&realm=${realm}&name=${name}&fields=mythic_plus_best_runs%2Cmythic_plus_scores_by_season%3Acurrent`)
+.then(response => response.json())
+.then(data => {
+    const firstRun = data.mythic_plus_best_runs[0];
+    wowtitle.innerHTML = `${data.name} - ${data.realm}`;
+    classText.textContent = data.class == "Death Knight" ? "Cavaliere della Morte" : data.class;
+    specText.textContent = data.active_spec_name == "Unholy" ? "Empietà" : data.active_spec_name;
+    factionText.textContent = data.faction == "horde" ? "Orda" : data.faction == "alliance" ? "Alleanza" : data.faction;
+    raiderioScore.textContent = data.mythic_plus_scores_by_season[0].scores.all;
 });
 
-document.getElementById("steamBtn").addEventListener("click", function () {
+document.getElementById("BtnTelegram").addEventListener("click", function() {
+    setTimeout(function() {
+    window.open("https://t.me/OnlyTegra", "_blank");
+    }, 850);
+});
 
+document.getElementById("BtnGithub").addEventListener("click", function() {
+    setTimeout(function() {
+    window.open("https://github.com/OnlyTegra", "_blank");
+    }, 850);
+});
+
+document.getElementById("BtnYoutube").addEventListener("click", function() {
+    setTimeout(function() {
+    window.open("https://www.youtube.com/@OnlyTegra", "_blank");
+    }, 850);
+});
+
+document.getElementById("BtnInstagram").addEventListener("click", function() {
+    setTimeout(function() {
+    window.open("https://www.instagram.com/onlytegra", "_blank");
+    }, 850);
+});
+
+document.getElementById("BtnTelegram").addEventListener("click", function() {
+    setTimeout(function() {
+    window.open("https://t.me/OnlyTegra", "_blank");
+    }, 850);
+});
+
+document.getElementById("BtnSteam").addEventListener("click", function() {
+    setTimeout(function() {
     window.open("https://steamcommunity.com/id/realtegra/", "_blank");
+    }, 850);
+});
 
-})
+document.getElementById("BtnDiscord").addEventListener("click", function() {
+    setTimeout(function() {
+    window.open("https://discord.gg/xv2Pz32sxE", "_blank");
+    }, 850);
+});
 
-document.getElementById("discordBtn").addEventListener("click", function (){
-    window.open("https://discord.gg/f8rTD68UP7","_blank");
-})
+document.getElementById("BtnRepo1").addEventListener("click", function() {
+    setTimeout(function() {
+    window.open("https://github.com/OnlyTegra/TryParse.h", "_blank");
+    }, 850);
+});
 
-document.getElementById("youtubeBtn").addEventListener("click", function (){
-    window.open("https://www.youtube.com/@OnlyTegra","_blank");
-})
+document.getElementById("BtnRepo2").addEventListener("click", function() {
+    setTimeout(function() {
+    window.open("https://github.com/OnlyTegra/DateTime.h", "_blank");
+    }, 850);
+});
 
-document.getElementById("instagramBtn").addEventListener("click", function (){
-    window.open("https://www.instagram.com/onlytegra/","_blank");
-})
+document.getElementById("BtnRepo3").addEventListener("click", function() {
+    setTimeout(function() {
+    window.open("https://github.com/OnlyTegra/Libreria-Giochi", "_blank");
+    }, 850);
+});
 
-const username = "onlytegra"; 
-fetch(`https://api.github.com/users/${username}`)
-  .then(response => response.json())
-  .then(data => {
-    const stats = document.getElementById("profile-stats");
-    stats.innerHTML = `
-      <li>🌟 Followers: ${data.followers}</li>
-      <li>👥 Following: ${data.following}</li>
-      <li>📦 Repos pubblici: ${data.public_repos}</li>
-    `;
-  })
-  .catch(err => console.error("Errore nel recupero dati GitHub, che palle:", err));
+document.getElementById("BtnRepo4").addEventListener("click", function() {
+    setTimeout(function() {
+    window.open("https://github.com/OnlyTegra/Subnetter", "_blank");
+    }, 850);
+});
+
+document.getElementById("BtnWowProfile").addEventListener("click", function() {
+    setTimeout(function() {
+    window.open("https://raider.io/characters/eu/pozzo-delleternit%C3%A0/Tegra", "_blank");
+    }, 850);
+});

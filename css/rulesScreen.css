@@ -1,0 +1,50 @@
+@media (max-width: 1200px) {
+  #container {
+    flex-direction: column; 
+    margin: 0px;
+  }
+
+  #socials{
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  #raiderDivContainer {
+    flex-direction: column !important;
+  }
+
+  #profile
+  {
+    margin-top: 25px;
+  }
+
+}
+
+@media (max-width: 900px) {
+  #profile {
+    width: 390px !important;
+    margin-top: 25px;
+  }
+  #socials {
+    flex-direction: column; 
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 390px !important;
+  }
+
+    #separator {
+    display: none;
+  }
+
+    #raiderDiv {
+    width: 390px !important;
+  }
+
+  #divContributions {
+    display: none !important;
+  }
+
+  #titoloWoW {
+    width: 80% !important;
+  }
+}
