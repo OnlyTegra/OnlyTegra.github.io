@@ -20,7 +20,9 @@
 
 
 <body>
-  <audio id="bg-music" src="/audio/music.mp3"></audio>
+  
+
+  <div id="player" style="display: none;"></div>
   <div id="intro" onclick="startExperience()">
     <h1 class="glow-purple" id="loading-text">👁️<br><span style="font-size: 10px;"><i>clicca per entrare</i></span>
     </h1>
@@ -50,8 +52,10 @@
   </div>
 </div>
   <div id="container">
+    
     <div id="profile" class="glow-border-pulse" data-aos="zoom-in-up">
       <img style="border: 1px solid rgba(100, 100, 100, 0.336)" src="https://github.com/onlytegra.png" id="profile-img">
+
       <span id="profile-name" class="glow-blue">@Tegra</span>
       <span style="font-size: 12px;"><i>Marco</i></span>
       <div id="profile-bio">
@@ -444,7 +448,7 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
+ <script src="https://www.youtube.com/iframe_api"></script>
   <script>
     AOS.init({
       duration: 500,
@@ -452,6 +456,7 @@
     });
   </script>
   <script src="./js/intro.js"></script>
+ 
 
 
 </body>

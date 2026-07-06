@@ -1,34 +1,42 @@
 let loadingStarted = false;
 
+let player;
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    videoId: '0HhBEfz_Ycg',
+    playerVars: {
+      origin: window.location.origin,
+      autoplay: 0,
+      controls: 0
+    }
+  });
+}
+
+
 function startExperience() {
-  if (loadingStarted) return; // evita doppio click
+  if (loadingStarted) return;
   loadingStarted = true;
 
   const intro = document.getElementById("intro");
-  const site = document.getElementById("site");
-  const audio = document.getElementById("bg-music");
-
   const text = document.getElementById("loading-text");
   const fill = document.getElementById("loading-fill");
   const nowplaying = document.getElementById("now-playing");
   const loadingBar = document.getElementById("loading-bar");
 
+  loadingBar.style.opacity = "1";
 
-loadingBar.style.opacity = "1";
-audio.volume = 0.3;
-audio.play();
+  if (player) {
+    player.playVideo();
+  }
 
-// 👁️ scompare
-text.classList.add("fade-out");
+  text.classList.add("fade-out");
 
-setTimeout(() => {
-    // Cambia testo
+  setTimeout(() => {
     text.innerText = "Caricamento...";
-
-    // Riparte il fade
     text.classList.remove("fade-out");
     text.classList.add("fade-in");
-}, 300);
+  }, 300);
 
   const duration = 10000;
   const startTime = Date.now();
@@ -39,14 +47,11 @@ setTimeout(() => {
 
     fill.style.width = (progress * 100) + "%";
 
-    // 🟣 testo che diventa viola acceso
     const red = Math.floor(255 - (255 - 180) * progress);
     const green = Math.floor(255 * (1 - progress));
     const blue = 255;
 
     text.style.color = `rgb(${red}, ${green}, ${blue})`;
-
-    // Glow viola sempre più intenso
     text.style.textShadow = `0 0 ${20 * progress}px rgba(180, 0, 255, ${progress})`;
 
     if (progress === 1) {
