@@ -1,4 +1,4 @@
-    let loadingStarted = false;
+let loadingStarted = false;
 
 function startExperience() {
   if (loadingStarted) return; // evita doppio click
@@ -6,7 +6,7 @@ function startExperience() {
 
   const intro = document.getElementById("intro");
   const site = document.getElementById("site");
-  //const audio = document.getElementById("bg-music");
+  const audio = document.getElementById("bg-music");
 
   const text = document.getElementById("loading-text");
   const fill = document.getElementById("loading-fill");
@@ -15,8 +15,8 @@ function startExperience() {
 
 
 loadingBar.style.opacity = "1";
-//audio.volume = 0.3;
-//audio.play();
+audio.volume = 0.3;
+audio.play();
 
 // 👁️ scompare
 text.classList.add("fade-out");
