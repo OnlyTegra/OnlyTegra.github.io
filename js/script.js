@@ -19,71 +19,77 @@ fetch (`https://raider.io/api/v1/characters/profile?region=eu&realm=${realm}&nam
 document.getElementById("BtnTelegram").addEventListener("click", function() {
     setTimeout(function() {
     window.open("https://t.me/OnlyTegra", "_blank");
-    }, 850);
+    }, 550);
 });
 
 document.getElementById("BtnGithub").addEventListener("click", function() {
     setTimeout(function() {
     window.open("https://github.com/OnlyTegra", "_blank");
-    }, 850);
+    }, 550);
 });
 
 document.getElementById("BtnYoutube").addEventListener("click", function() {
     setTimeout(function() {
     window.open("https://www.youtube.com/@OnlyTegra", "_blank");
-    }, 850);
+    }, 550);
 });
 
 document.getElementById("BtnInstagram").addEventListener("click", function() {
     setTimeout(function() {
     window.open("https://www.instagram.com/onlytegra", "_blank");
-    }, 850);
+    }, 550);
 });
 
 document.getElementById("BtnTelegram").addEventListener("click", function() {
     setTimeout(function() {
     window.open("https://t.me/OnlyTegra", "_blank");
-    }, 850);
+    }, 550);
 });
 
 document.getElementById("BtnSteam").addEventListener("click", function() {
     setTimeout(function() {
     window.open("https://steamcommunity.com/id/realtegra/", "_blank");
-    }, 850);
+    }, 550);
+});
+
+document.getElementById("BtnTiktok").addEventListener("click", function() {
+    setTimeout(function() {
+    window.open("https://www.tiktok.com/@onlytegra", "_blank");
+    }, 550);
 });
 
 document.getElementById("BtnDiscord").addEventListener("click", function() {
     setTimeout(function() {
     window.open("https://discord.gg/xv2Pz32sxE", "_blank");
-    }, 850);
+    }, 550);
 });
 
 document.getElementById("BtnRepo1").addEventListener("click", function() {
     setTimeout(function() {
     window.open("https://github.com/OnlyTegra/TryParse.h", "_blank");
-    }, 850);
+    }, 550);
 });
 
 document.getElementById("BtnRepo2").addEventListener("click", function() {
     setTimeout(function() {
     window.open("https://github.com/OnlyTegra/DateTime.h", "_blank");
-    }, 850);
+    }, 550);
 });
 
 document.getElementById("BtnRepo3").addEventListener("click", function() {
     setTimeout(function() {
     window.open("https://github.com/OnlyTegra/Libreria-Giochi", "_blank");
-    }, 850);
+    }, 550);
 });
 
 document.getElementById("BtnRepo4").addEventListener("click", function() {
     setTimeout(function() {
     window.open("https://github.com/OnlyTegra/Subnetter", "_blank");
-    }, 850);
+    }, 550);
 });
 
 document.getElementById("BtnWowProfile").addEventListener("click", function() {
     setTimeout(function() {
     window.open("https://raider.io/characters/eu/pozzo-delleternit%C3%A0/Tegra", "_blank");
-    }, 850);
+    }, 550);
 });
