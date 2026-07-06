@@ -1,9 +1,9 @@
 let loadingStarted = false;
-
+let barLoading = false;
 let playerReady = false;
 let player;
 
-function onYouTubeIframeAPIReady() {
+function initPlayer() {
   player = new YT.Player('player', {
     videoId: '0HhBEfz_Ycg',
     playerVars: {
@@ -18,16 +18,31 @@ function onYouTubeIframeAPIReady() {
   });
 }
 
+if (window.YT && window.YT.Player) {
+  initPlayer();
+} else {
+
+  window.onYouTubeIframeAPIReady = initPlayer;
+
+  if (!loadingStarted) {
+    loadingStarted = true;
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+  }
+}
+
 function startExperience() {
 
   if (playerReady && player) {
     player.playVideo();
   } else {
+    console.log("player non pronto");
     return;
   }
 
-  if (loadingStarted) return;
-  loadingStarted = true;
+  if (barLoading) return;
+  barLoading = true;
 
   const intro = document.getElementById("intro");
   const text = document.getElementById("loading-text");
