@@ -1,20 +1,31 @@
 let loadingStarted = false;
 
+let playerReady = false;
 let player;
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     videoId: '0HhBEfz_Ycg',
     playerVars: {
-      origin: window.location.origin,
       autoplay: 0,
       controls: 0
+    },
+    events: {
+      onReady: function (event) {
+        playerReady = true;
+      }
     }
   });
 }
 
-
 function startExperience() {
+
+  if (playerReady && player) {
+    player.playVideo();
+  } else {
+    return;
+  }
+
   if (loadingStarted) return;
   loadingStarted = true;
 
@@ -25,10 +36,6 @@ function startExperience() {
   const loadingBar = document.getElementById("loading-bar");
 
   loadingBar.style.opacity = "1";
-
-  if (player) {
-    player.playVideo();
-  }
 
   text.classList.add("fade-out");
 
