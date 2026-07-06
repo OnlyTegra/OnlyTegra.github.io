@@ -33,7 +33,6 @@ if (window.YT && window.YT.Player) {
 }
 
 function startExperience() {
-
   if (playerReady && player) {
     player.playVideo();
   } else {
@@ -51,7 +50,6 @@ function startExperience() {
   const loadingBar = document.getElementById("loading-bar");
 
   loadingBar.style.opacity = "1";
-
   text.classList.add("fade-out");
 
   setTimeout(() => {
@@ -61,33 +59,27 @@ function startExperience() {
   }, 300);
 
   const duration = 10000;
-  const startTime = Date.now();
+  
+  fill.style.transition = `transform ${duration}ms linear`;
+  text.style.transition = `color ${duration}ms linear, text-shadow ${duration}ms linear`;
 
-  const interval = setInterval(() => {
-    let progress = (Date.now() - startTime) / duration;
-    if (progress > 1) progress = 1;
+  requestAnimationFrame(() => {
+    fill.style.transform = "scaleX(1)"; 
+    text.style.color = "rgb(180, 0, 255)";
+    text.style.textShadow = "0 0 20px rgba(180, 0, 255, 1)";
+  });
 
-    fill.style.width = (progress * 100) + "%";
+  fill.addEventListener("transitionend", function handler(e) {
+    if (e.propertyName !== "transform") return;
+    fill.removeEventListener("transitionend", handler);
 
-    const red = Math.floor(255 - (255 - 180) * progress);
-    const green = Math.floor(255 * (1 - progress));
-    const blue = 255;
-
-    text.style.color = `rgb(${red}, ${green}, ${blue})`;
-    text.style.textShadow = `0 0 ${20 * progress}px rgba(180, 0, 255, ${progress})`;
-
-    if (progress === 1) {
-      clearInterval(interval);
+    setTimeout(() => {
+      intro.classList.add("hide");
 
       setTimeout(() => {
-        intro.classList.add("hide");
-
-        setTimeout(() => {
-          intro.style.display = "none";
-          nowplaying.classList.add("show");
-        }, 1000);
-
-      }, 300);
-    }
-  }, 16);
+        intro.style.display = "none";
+        nowplaying.classList.add("show");
+      }, 1000);
+    }, 300);
+  });
 }

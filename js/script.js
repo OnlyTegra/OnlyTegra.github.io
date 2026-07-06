@@ -9,7 +9,7 @@ fetch (`https://raider.io/api/v1/characters/profile?region=eu&realm=${realm}&nam
 .then(response => response.json())
 .then(data => {
     const firstRun = data.mythic_plus_best_runs[0];
-    wowtitle.innerHTML = `${data.name} - ${data.realm}`;
+    wowtitle.innerHTML = `<h1>${data.name} - ${data.realm}</h1>`;
     classText.textContent = data.class == "Death Knight" ? "Cavaliere della Morte" : data.class;
     specText.textContent = data.active_spec_name == "Unholy" ? "Empietà" : data.active_spec_name;
     factionText.textContent = data.faction == "horde" ? "Orda" : data.faction == "alliance" ? "Alleanza" : data.faction;
