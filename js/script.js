@@ -54,7 +54,7 @@ document.getElementById("BtnSteam").addEventListener("click", function() {
 
 document.getElementById("BtnTiktok").addEventListener("click", function() {
     setTimeout(function() {
-    window.open("https://www.tiktok.com/@onlytegra", "_blank");
+    window.open("https://www.tiktok.com/@.t3gr4", "_blank");
     }, 550);
 });
 
