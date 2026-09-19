@@ -3,9 +3,10 @@ let classText = document.getElementById("class-text");
 let specText = document.getElementById("spec-text");
 let factionText = document.getElementById("faction-text");
 let raiderioScore = document.getElementById("raiderio-score");
+let gearScore = document.getElementById("gear-score");
 let name = "tegra";
 let realm = "pozzo-delleternità";
-fetch (`https://raider.io/api/v1/characters/profile?region=eu&realm=${realm}&name=${name}&fields=mythic_plus_best_runs%2Cmythic_plus_scores_by_season%3Acurrent`)
+fetch (`https://raider.io/api/v1/characters/profile?region=eu&realm=${realm}&name=${name}&fields=gear%2Cmythic_plus_best_runs%2Cmythic_plus_scores_by_season%3Acurrent`)
 .then(response => response.json())
 .then(data => {
     const firstRun = data.mythic_plus_best_runs[0];
@@ -14,6 +15,7 @@ fetch (`https://raider.io/api/v1/characters/profile?region=eu&realm=${realm}&nam
     specText.textContent = data.active_spec_name == "Unholy" ? "Empietà" : data.active_spec_name;
     factionText.textContent = data.faction == "horde" ? "Orda" : data.faction == "alliance" ? "Alleanza" : data.faction;
     raiderioScore.textContent = data.mythic_plus_scores_by_season[0].scores.all;
+    gearScore.textContent = data.gear.item_level_equipped;
 });
 
 document.getElementById("BtnTelegram").addEventListener("click", function() {
