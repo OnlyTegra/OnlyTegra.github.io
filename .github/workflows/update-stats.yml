@@ -1,0 +1,47 @@
+name: Aggiorna Statistiche Fortnite
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/update-stats.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-stats:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Scarica il repository
+        uses: actions/checkout@v4
+
+      - name: Scarica dati da Fortnite-API
+        env:
+          API_KEY: ${{ secrets.FORTNITE_API_KEY }}
+          EPIC_NAME: "TEGRA NEED TOKEN"
+        run: |
+          HTTP_STATUS=$(curl -s -G -w "%{http_code}" -o temp_stats.json \
+            -H "Authorization: $API_KEY" \
+            --data-urlencode "name=$EPIC_NAME" \
+            "https://fortnite-api.com/v2/stats/br/v2")
+
+          if [ "$HTTP_STATUS" -eq 200 ]; then
+            mv temp_stats.json stats.json
+            echo "Statistiche aggiornate correttamente."
+          else
+            echo "Errore API (HTTP $HTTP_STATUS):"
+            cat temp_stats.json
+            rm -f temp_stats.json
+            exit 1
+          fi
+
+      - name: Salva stats.json nel repository
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add stats.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Aggiornamento automatico stats Fortnite" && git push)
