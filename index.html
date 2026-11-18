@@ -10,19 +10,31 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 </head>
 
-<body>
+<body class="intro-active">
 
   <audio id="bg-audio" src="sound/wock.mp3" preload="auto" loop></audio>
 
-  <!-- INTRO SCREEN -->
+  <!-- INTRO SCREEN (ULTRA-MINIMAL BLACK + INTENSE GLOW) -->
   <div id="intro" onclick="startExperience()">
+    <div class="intro-shutter intro-shutter-top" aria-hidden="true"></div>
+    <div class="intro-shutter intro-shutter-bottom" aria-hidden="true"></div>
+
+    <div class="intro-atmo" aria-hidden="true">
+      <div class="intro-halo"></div>
+      <div class="intro-horizon-flare"></div>
+    </div>
+
     <div class="intro-content">
       <div class="intro-eye-wrap">
         <span class="intro-eye">👁️</span>
       </div>
-      <h1 class="glow-purple" id="loading-text">
-        <span><i>clicca ovunque per entrare</i></span>
-      </h1>
+
+      <div class="intro-text-block">
+        <h1 id="loading-text">
+          <span>clicca ovunque per entrare</span>
+        </h1>
+        <span id="loading-pct" aria-hidden="true">00%</span>
+      </div>
 
       <div id="loading-bar" style="opacity: 0;">
         <div id="loading-fill"></div>
@@ -78,7 +90,6 @@
         <div class="profile-top">
           <div class="avatar-wrapper">
             <img src="https://github.com/onlytegra.png" id="profile-img" alt="Tegra">
-            <span class="status-badge" title="Online & Coding"></span>
           </div>
           <div class="profile-title-group">
             <span id="profile-name" class="glow-blue">@Tegra</span>
@@ -695,7 +706,7 @@
     </div>
 
     <footer class="site-footer">
-      <p>Versione 2.0.0 - Tegra</p>
+      <p>Versione 2.1.0 - Tegra</p>
     </footer>
 
   </main>
